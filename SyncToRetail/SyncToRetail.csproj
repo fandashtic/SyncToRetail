@@ -66,9 +66,9 @@
   <ItemGroup>
     <Compile Include="Database\DbContext.cs" />
     <Compile Include="Database\Helper.cs" />
-    <Compile Include="FirebaseDB.cs" />
-    <Compile Include="FirebaseRequest.cs" />
-    <Compile Include="FirebaseResponse.cs" />
+    <Compile Include="Database\FirebaseDB.cs" />
+    <Compile Include="Database\FirebaseRequest.cs" />
+    <Compile Include="Database\FirebaseResponse.cs" />
     <Compile Include="Inventory\ProductBatch.cs" />
     <Compile Include="Master\Beat.cs" />
     <Compile Include="Master\Customer.cs" />
@@ -88,7 +88,7 @@
     <Compile Include="Sales\SalesAbstract.cs" />
     <Compile Include="Sales\SalesDetail.cs" />
     <Compile Include="Sales\SalesProcess.cs" />
-    <Compile Include="UtilityHelper.cs" />
+    <Compile Include="Database\UtilityHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SyncToRetail.Sales;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +33,7 @@ namespace SyncToRetail
             try
             {
                 List<Beat> list = new List<Beat>();
+                list = DbContext.GetBeat();
                 UploadBeat(list);
                 return true;
             }
@@ -69,6 +69,7 @@ namespace SyncToRetail
             try
             {
                 List<Customer> list = new List<Customer>();
+                list = DbContext.GetCustomer();
                 UploadCustomer(list);
                 return true;
             }
@@ -104,6 +105,7 @@ namespace SyncToRetail
             try
             {
                 List<Product> list = new List<Product>();
+                list = DbContext.GetProduct();
                 UploadProduct(list);
                 return true;
             }
@@ -139,6 +141,7 @@ namespace SyncToRetail
             try
             {
                 List<SalesMan> list = new List<SalesMan>();
+                list = DbContext.GetSalesMan();
                 UploadSalesMan(list);
                 return true;
             }
@@ -174,6 +177,7 @@ namespace SyncToRetail
             try
             {
                 List<SalesManBeat> list = new List<SalesManBeat>();
+                list = DbContext.GetSalesManBeat();
                 UploadSalesManBeat(list);
                 return true;
             }

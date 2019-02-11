@@ -20,7 +20,7 @@ namespace SyncToRetail
             MasterProcess.GetUser();
             SalesProcess.GetSales();
             PurchaseProcess.GetPurchase();
-            ReadLine();
+            //ReadLine();
         }
 
         static void WriteLine(string str = null)

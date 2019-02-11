@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SyncToRetail.Sales;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +9,7 @@ namespace SyncToRetail
 {
     public class SalesProcess
     {
-        public static bool UploadSales(List<Sales.Sales> list)
+        public static bool UploadSales(List<Sales> list)
         {
             try
             {                
@@ -28,7 +27,7 @@ namespace SyncToRetail
         {
             try
             {
-                List<Sales.Sales> list = new List<Sales.Sales>();
+                List<Sales> list = new List<Sales>();
                 UploadSales(list);
                 return true;
             }
