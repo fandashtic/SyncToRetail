@@ -17,7 +17,7 @@ namespace SyncToRetail
         {
             List<Tax> list = new List<Tax>();
             try
-            {                
+            {
                 using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ConnectionString))
                 {
                     connection.Open();
@@ -37,7 +37,7 @@ namespace SyncToRetail
                         DataTable dtTable = ds.Tables[0];
                         list = Helper.DataTableToList<Tax>(dtTable);
                     }
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -50,7 +50,7 @@ namespace SyncToRetail
         {
             List<User> list = new List<User>();
             try
-            {                
+            {
                 DataSet ds = new DataSet();
                 using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ConnectionString))
                 {
@@ -276,7 +276,7 @@ namespace SyncToRetail
 
         #endregion Purchase
 
-        #region Purchase
+        #region Sales
 
         public static List<Sales> GetSales()
         {
@@ -310,7 +310,45 @@ namespace SyncToRetail
             return list;
         }
 
-        #endregion Purchase
+        #endregion Sales
+
+        #region Test
+        public static List<Temp> GetTemp()
+        {
+            List<Temp> list = new List<Temp>();
+            try
+            {
+                DataSet ds = new DataSet();
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ConnectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("GetTemp", connection);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //cmd.Parameters.AddWithValue("@CentreId", centreId);                        
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    if (sda != null)
+                    {
+                        sda.Fill(ds);
+                    }
+                }
+                if (ds != null && ds.Tables.Count > 0)
+                {
+                    DataTable dtTable = ds.Tables[0];
+                    List <Centres> Centres = new List<Centres>();
+                    List<Users1> Users1 = new List<Users1>();
+                    Centres = Helper.DataTableToList<Centres>(ds.Tables[0]);
+                    Users1 = Helper.DataTableToList<Users1>(ds.Tables[1]);
+                }
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+            return list;
+        }
+        #endregion Test
+
     }
 }
 

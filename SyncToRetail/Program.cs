@@ -20,6 +20,7 @@ namespace SyncToRetail
             MasterProcess.GetUser();
             SalesProcess.GetSales();
             PurchaseProcess.GetPurchase();
+            DbContext.GetTemp();
             //ReadLine();
         }
 

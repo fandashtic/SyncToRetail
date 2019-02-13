@@ -89,6 +89,7 @@
     <Compile Include="Sales\SalesDetail.cs" />
     <Compile Include="Sales\SalesProcess.cs" />
     <Compile Include="Database\UtilityHelper.cs" />
+    <Compile Include="Temp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
