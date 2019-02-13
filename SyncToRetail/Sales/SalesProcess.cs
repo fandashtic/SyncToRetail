@@ -12,8 +12,12 @@ namespace SyncToRetail
         public static bool UploadSales(List<Sales> list)
         {
             try
-            {                
-                var json = JsonConvert.SerializeObject(list);
+            {                     
+                Dictionary<string, Sales> sales = new Dictionary<string, Sales>();
+                list.ForEach(l => {
+                    sales.Add(l.Abstract.InvoiceID, l);
+                });
+                var json = JsonConvert.SerializeObject(sales);
                 FirebaseDB.UploadServices(json, "Sales");
                 return true;
             }

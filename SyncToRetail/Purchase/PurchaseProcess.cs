@@ -13,7 +13,11 @@ namespace SyncToRetail
         {
             try
             {
-                var json = JsonConvert.SerializeObject(list);
+                Dictionary<string, Purchase> purchases = new Dictionary<string, Purchase>();
+                list.ForEach(l => {
+                    purchases.Add(l.Abstract.BillID, l);
+                });
+                var json = JsonConvert.SerializeObject(purchases);
                 FirebaseDB.UploadServices(json, "Purchase");
                 return true;
             }
